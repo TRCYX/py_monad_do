@@ -13,7 +13,7 @@ class _Continuation:
     def send(self, b):
         return _Continuation(self.generator_creator, self.history + [b])
 
-    def get(self):
+    def produce_value(self):
         g = self.generator_creator()
         try:
             for h in self.history:
@@ -24,7 +24,7 @@ class _Continuation:
 
 
 def _transform(_cont):
-    e = _cont.get()
+    e = _cont.produce_value()
 
     def if_left(cont_b):
         def transformed(b):

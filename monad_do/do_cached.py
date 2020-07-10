@@ -49,7 +49,7 @@ class _Continuation:
     def _clear(self):
         self.saved_generator = None
 
-    def get(self):
+    def produce_value(self):
         if self.value_produced is None:
             if self.saved_generator is None:
                 self._create_generator()
@@ -59,7 +59,7 @@ class _Continuation:
 
 
 def _transform(_cont):
-    e = _cont.get()
+    e = _cont.produce_value()
 
     def if_left(cont_b):
         def transformed(b):

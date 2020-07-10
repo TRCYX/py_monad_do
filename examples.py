@@ -70,3 +70,22 @@ def test_cont(n):
 
 
 print(test_cont(10).run(identity))
+
+
+@do(IO)
+def echo():
+    @do(IO)
+    def loop():
+        s = yield io_input('echo> ')
+        if s != 'exit':
+            yield io_print(s)
+            return loop()
+        else:
+            return IO.pure(())
+
+    yield io_print('-- The echo program --')
+    yield io_print('Type "exit" to exit')
+    return loop()
+
+e = echo()
+e.run()
