@@ -9,4 +9,5 @@ from .io import IO, as_io, io_input, io_print
 from .list_ import List
 from .maybe import Just, Maybe, Nothing
 from .monad import Monad, mcompose
+from .reader import Reader, ask, local
 from .state import State, get, gets, modify, put

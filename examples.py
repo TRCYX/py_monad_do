@@ -89,3 +89,28 @@ def echo():
 
 e = echo()
 e.run()
+
+
+from collections import namedtuple
+
+CONFIG = {
+    "first-name": "Napoléon",
+    "last-name": "Bonaparte",
+    "age": "52",
+    "country": "France",
+}
+
+Person = namedtuple("Person", "name age")
+
+read_name = Reader(lambda config: config["first-name"] + " " + config["last-name"])
+read_age = Reader(lambda config: int(config["age"]))
+
+@do(Reader)
+def test_reader():
+    name = yield read_name
+    age = yield read_age
+    env = yield ask
+    print(env)
+    return Reader.pure(Person(name, age))
+
+print(test_reader().run(CONFIG))
