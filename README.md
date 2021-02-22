@@ -29,3 +29,7 @@ The implementation is primarily inspired by these following materials:
 - [The Mother of all Monads](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/the-mother-of-all-monads) gives the idea of implementing other monads through the `Cont` monad.
 
 Type hints are not incorporated. For now, the weak support for function types (on arguments) makes type hinting more of a burden then something helpful.
+
+### Acknowledgements
+
+Thank @danoneata for adding the `Reader` Monad.

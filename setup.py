@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='monad_do',
-    version='0.1.0',
+    version='0.1.1',
     author='TRCYX',
     license='MIT',
     description='Do notation in Python',
